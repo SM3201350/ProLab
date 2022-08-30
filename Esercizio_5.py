@@ -74,14 +74,7 @@ class NumericalCSVFile (CSVFile):
 
 
 
-the_file = CSVFile('shampoo_sales.csv')
-print('Nome del file: "{}"'.format(the_file.name))
-print('Dati contenuti nel file: "{}"'.format(the_file.get_data()))
 
-
-my_numerical_file = NumericalCSVFile('shampoo_sales.csv')
-print('Nome del file: "{}"'.format(my_numerical_file.name))
-print('Dati contenuti nel file: "{}"'.format(my_numerical_file.get_data()))
 
                 
 
