@@ -28,8 +28,9 @@ def Stamp_List(list):
     #Se la lista è vuota...
     else:
         print('Impossibile stampare: Lista vuota')
+        return False
 
-    return None
+    
 
 
 
@@ -99,7 +100,14 @@ def Sum_Vect(list_1,list_2):
 
 
     
-first_list = [1.1,2,3,4]
-second_list = [5,-6,7,9]
+first_list = [1,2,3,4]
+second_list = [5,-6,7,1.1]
 
+print('--------------------------')
+print('La prima lista è piena: {}'.format(Full_List(first_list)))
+print('La seconda lista è piena: {}'.format(Full_List(second_list)))
+print('--------------------------')
+print('La prima lista è: {}'.format(Stamp_List(first_list)))
+print('La seconda lista è: {}'.format(Stamp_List(second_list)))
+print('--------------------------')
 Sum_Vect(first_list,second_list)
