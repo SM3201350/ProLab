@@ -22,12 +22,8 @@ class CSVfile():
             #se NON sto processando l'intestazione...
             if elements[0] != 'Date':
 
-                #setto la data e il valore
-                date = elements[0]
-                value = elements[1]
-
                 #aggiungo alla lista dei valori questo valore
-                values.append(value)
+                values.append(elements)
 
         print(values)
         the_file.close()

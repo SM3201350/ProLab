@@ -72,7 +72,9 @@ class NumericalCSVFile (CSVFile):
 
         
 
-
+my_file = NumericalCSVFile('shampoo_sales.csv')
+test = my_file.get_data()
+print(test)
 
 
 
