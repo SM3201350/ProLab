@@ -104,7 +104,6 @@ def Sum_Vect(list_1,list_2):
 
     
 first_list = [1,2,3,4]
-second_list = [9,8,7,6.7]
+second_list = [9,8,7,6]
 
-Int_List(first_list)
-Int_List(second_list)
+print(Sum_Vect(first_list,second_list))

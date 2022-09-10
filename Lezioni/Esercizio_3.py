@@ -10,17 +10,18 @@ def sum_csv(file_name):
         if elements[0] != 'Date':
             
             date = elements[0]
-            value = float(elements[1])
+            value = elements[1]
 
             values.append(value)
 
     print(values)
     
-    sumlist = sum(values)
-    print(sumlist)
+   
     
     my_file.close()
 
-sum_csv("shampoo_sales.csv")
+
+
+sum_csv('shampoo_sales.csv')
 
     
