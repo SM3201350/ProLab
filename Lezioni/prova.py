@@ -1,8 +1,23 @@
-import matplotlib.pyplot as plt
-import numpy as np
+#==============================
+#  Classe per file CSV
+#==============================
 
-xpoints = np.array([0, 6])
-ypoints = np.array([0, 250])
+class CSVFile:
 
-plt.plot(xpoints, ypoints)
-plt.show()
+    def __init__(self, name):
+        
+        # Setto il nome del file
+        self.name = name
+        
+        
+    def get_data(self):
+
+        try:
+            my_file=open(self.name,'r')
+            my_file.readline()
+        except Exception:
+            print('Mona')
+
+
+csv_file=CSVFile('shampo_sales.csv')
+file=csv_file.get_data()
