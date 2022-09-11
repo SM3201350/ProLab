@@ -27,7 +27,7 @@ class CSVFile:
 
 
         #inizializzo la lista data per salvare i dati in formato numerico
-        data=[]+[]
+        data=[]
 
         #apro il file
         my_file = open(self.name,'r')
@@ -76,7 +76,23 @@ class CSVFile:
 #--------------------------
 
 
-time_series_file=CSVFile(name='dat.csv')
-
+time_series_file=CSVFile(name='data.csv')
 time_series=time_series_file.get_data()
-print(time_series[0:5])
+print((time_series[0][0]))
+
+
+#test 
+cambio_giorno=time_series[0][0]
+time = time_series
+for i in range(len(time_series)):
+    #verificare quando cambia il giorno
+    if(time_series[i][0]-cambio_giorno>=86400):
+        cambio_giorno=time_series[i][0]
+        print('{} giorno cambiato '.format(i))
+
+
+   
+
+        
+        
+    
