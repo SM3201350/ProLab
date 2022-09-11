@@ -9,7 +9,7 @@ class ExamException(Exception):
 #        classe principale
 #--------------------------------
 
-class CSVFile:
+class CSVTimeSeriesFile :
 
     def __init__(self,name):
 
@@ -67,32 +67,78 @@ class CSVFile:
 
         return data
 
+
+#------------------------------------------------
+#              Funzione
+#------------------------------------------------
+def compute_daily_max_difference(time_series):
+
+    #istanzio la lista dove memorizzo le escursioni termiche
+    temperature_range=[]
+    #istanzio una variabile che conta i giorni
+    giorno=1
+    #variabile che memorizza l'indice della lista
+    index=0
+    
+
+    #itero 
+    for i in range(len(time_series)):
+
+        if i==0:
+            min=time_series[0][1]
+            max=time_series[0][1]
+                
+        else:
+            if(min>time_series[i][1]):
+                min=time_series[i][1]
+
+            elif(max<time_series[i][1]):
+                max=time_series[i][1]
+
+                
+        #calcolo il giorno alla mezzanotte precisa
+        day_start_epoch=(time_series[index][0])-((time_series[index][0])%86400)
         
+        #verificp quando cambia il giorno
+        #se epoch attuale sottratto all'inizio del giorno supera i secondi fdi un giorno intero
+        if(time_series[i][0]-day_start_epoch>=86400):
+            #cambia il giorno
+            giorno+=1
+            
+            #assegno a index l'indice della lista in cui cambia giorno
+            index=i
+            difference=max-min
+            min=time_series[i][1]
+            max=time_series[i][1]
+            if(difference==0):
+                temperature_range.append(None)
+            else:
+                temperature_range.append(difference)
+            
+            
 
+    return temperature_range
+            
+            
+                
+   
 
-
+        
 #--------------------------
 #     corpo principale
 #--------------------------
 
 
-time_series_file=CSVFile(name='data.csv')
+time_series_file=CSVTimeSeriesFile (name='data.csv')
 time_series=time_series_file.get_data()
-print((time_series[0][0]))
+prova=compute_daily_max_difference(time_series)
+for i,value in enumerate(prova):
+    print('giorno_{} = {}'.format(i,value))
 
 
-#test 
-cambio_giorno=time_series[0][0]
-time = time_series
-for i in range(len(time_series)):
-    #verificare quando cambia il giorno
-    if(time_series[i][0]-cambio_giorno>=86400):
-        cambio_giorno=time_series[i][0]
-        print('{} giorno cambiato '.format(i))
 
 
-   
 
-        
-        
-    
+
+
+
