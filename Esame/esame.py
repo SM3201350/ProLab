@@ -144,8 +144,6 @@ def compute_daily_max_difference(time_series):
             max=time_series[i][1]
             
             
-            
-
     return temperature_range
             
             
