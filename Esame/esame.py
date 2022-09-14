@@ -158,9 +158,12 @@ def compute_daily_max_difference(time_series):
 time_series_file = CSVTimeSeriesFile(name='data.csv')
 time_series = time_series_file.get_data()
 temperature_range=compute_daily_max_difference(time_series)
+
 print(time_series)
+
 print('========================================')
 print('Escursioni termiche gironaliere')
+
 for i in range(len(temperature_range)):
     print('giorno_{} , {}'.format(i+1,temperature_range[i]))
 
